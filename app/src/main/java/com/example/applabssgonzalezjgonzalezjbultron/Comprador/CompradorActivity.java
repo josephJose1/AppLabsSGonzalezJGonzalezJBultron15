@@ -210,6 +210,7 @@ public class CompradorActivity extends AppCompatActivity {
         this.Cargar_Spinner();
         return lista;
     }
+    //aajclasjd
     public void Añadiralcarrito(View v){
         String nom="", codprod="", estado="", fecha="", idcomp="", cant="";
         Integer MaxID=0, cantidad=0;
