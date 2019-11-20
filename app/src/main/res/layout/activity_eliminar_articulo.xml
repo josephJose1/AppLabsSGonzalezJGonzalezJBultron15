@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="150px">
+
+        <TextView
+            android:layout_marginTop="40pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos del artículo"
+            android:textAlignment="center"
+            android:textSize="100px"/>
+
+        <EditText
+            android:id="@+id/txtIdE"
+            android:layout_marginTop="30pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Id del artículo"
+            android:backgroundTint="#4e9294"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/estilobotones"
+            android:text="Eliminar"
+            android:onClick="eliminar"
+            android:layout_marginTop="15pt"/>
+    </LinearLayout>
+
+</LinearLayout>

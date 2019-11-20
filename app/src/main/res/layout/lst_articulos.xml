@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgProducto"
+        android:layout_width="220px"
+        android:layout_height="255px"
+        android:src="@drawable/imgnotfound"/>
+
+
+    <LinearLayout
+        android:layout_marginLeft="50px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/lblNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Laptop"
+            android:textSize="25sp" />
+
+        <TextView android:id="@+id/lblId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Id: 1"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblCanti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Cantidad: 1"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblUbi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Ubicación: "
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Usado"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Precio: 250$"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgProducto"
+        android:layout_width="220px"
+        android:layout_height="255px"
+        android:src="@drawable/imgnotfound"/>
+
+    <TextView
+        android:id="@+id/añadir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgenSelect"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="1dp"
+        android:text="Añadir"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imgenSelect"
+        android:layout_width="29dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="179dp"
+        android:layout_marginTop="76dp"
+        android:layout_toRightOf="@id/imgProducto"
+        android:src="@mipmap/carritos"
+        android:text="Comprar"
+        tools:src="@mipmap/carritos"
+        android:onClick="Añadiralcarrito"/>
+
+
+    <LinearLayout
+        android:layout_marginLeft="13mm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/lblNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Laptop"
+            android:textSize="25sp" />
+
+        <TextView android:id="@+id/lblId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Id: 1"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblCanti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Cantidad: 1"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblUbi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Ubicación: "
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Usado"
+            android:textSize="12sp" />
+
+        <TextView android:id="@+id/lblPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:text="Precio: 250$"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

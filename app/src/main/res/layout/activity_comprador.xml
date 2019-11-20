@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Artículos en venta"
+        android:textStyle="bold"
+        android:textColor="#1DA1CE"
+        android:id="@+id/Titulo"
+        android:textSize="30sp"
+        android:layout_marginTop="100px"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Realizar Busqueda"
+        android:textStyle="bold"
+        android:textColor="#1DA1CE"
+        android:id="@+id/Busqueda"
+        android:layout_below="@+id/Titulo"
+        android:textSize="15sp"
+        android:layout_marginTop="50px"
+        android:textAlignment="center"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_marginTop="60pt"
+        android:id="@+id/spnEs"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="30mm"
+        android:layout_height="wrap_content"
+        android:id="@+id/editexValor"
+        android:layout_below="@+id/Busqueda"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:hint="Código"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnbuscar"
+        android:text="Buscar"
+        android:layout_below="@+id/Busqueda"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/estilobotones"
+        android:layout_alignParentRight="true"
+        android:onClick="btn"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="50px"
+            android:layout_below="@+id/btnbuscar"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lst_comprar_articulos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnComprar"
+        android:text="Comprar"
+        android:layout_below="@+id/btnbuscar"
+        android:layout_marginTop="180dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="@drawable/estilobotones"/>
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Total"
+        android:text="Total"
+        android:textStyle="bold"
+        android:textColor="#1DA1CE"
+        android:layout_marginLeft="15mm"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btnComprar"/>
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTotal"
+        android:text="0.00"
+        android:textStyle="bold"
+        android:layout_marginLeft="15mm"
+        android:layout_toRightOf="@+id/Total"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btnComprar" />
+</RelativeLayout>

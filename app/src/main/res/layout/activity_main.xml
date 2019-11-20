@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login.MainActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="150px">
+
+        <TextView
+            android:layout_marginTop="45pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inicio de sesión"
+            android:textAlignment="center"
+            android:textSize="100px"/>
+
+        <EditText
+            android:id="@+id/editUsuario"
+            android:layout_marginTop="30pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:backgroundTint="#4e9294"/>
+
+        <EditText
+            android:id="@+id/editPass"
+            android:layout_marginTop="5pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:backgroundTint="#4e9294"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/estilobotones"
+            android:text="Iniciar sesión"
+            android:onClick="irAlPerfil"
+            android:layout_marginTop="20pt"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/estilobotones"
+            android:text="Registrarse"
+            android:onClick="registrarse"
+            android:layout_marginTop="10pt"/>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

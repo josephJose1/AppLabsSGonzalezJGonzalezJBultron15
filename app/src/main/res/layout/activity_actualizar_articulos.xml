@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="150px">
+
+        <TextView
+            android:layout_marginTop="5pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese los nuevos datos"
+            android:textAlignment="center"
+            android:textSize="100px"/>
+
+        <EditText
+            android:id="@+id/txtId"
+            android:layout_marginTop="20pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Id del artículo"
+            android:backgroundTint="#4e9294"/>
+
+        <EditText
+            android:id="@+id/txtNom"
+            android:layout_marginTop="5pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del artículo"
+            android:backgroundTint="#4e9294"/>
+
+        <EditText
+            android:id="@+id/txtCan"
+            android:layout_marginTop="5pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Cantidad"
+            android:backgroundTint="#4e9294"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_marginTop="5pt"
+            android:id="@+id/spnEs"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/txtPre"
+            android:layout_marginTop="5pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Precio"
+            android:backgroundTint="#4e9294"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/estilobotones"
+            android:text="Actualizar Datos"
+            android:onClick="actualizar"
+            android:layout_marginTop="5pt"/>
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/agrArti"
+        android:title="Añadir Artículos"
+        android:orderInCategory="100" />
+    <item
+        android:id="@+id/updArti"
+        android:title="Actualizar Artículos"
+        android:orderInCategory="100" />
+    <item
+        android:id="@+id/eliArti"
+        android:title="Eliminar Artículos"
+        android:orderInCategory="100" />
+    <item
+        android:id="@+id/cerSesion"
+        android:title="Cerrar Sesión"
+        android:orderInCategory="100" />
+
+</menu>
