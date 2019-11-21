@@ -26,6 +26,8 @@ import com.example.applabssgonzalezjgonzalezjbultron.Adapters.ArticulosAdapters;
 import com.example.applabssgonzalezjgonzalezjbultron.Adapters.CompradorAdapters;
 import com.example.applabssgonzalezjgonzalezjbultron.Entidades.Articulos;
 import com.example.applabssgonzalezjgonzalezjbultron.Helpers.ArticulosBDHelper;
+import com.example.applabssgonzalezjgonzalezjbultron.Helpers.CompradorBDHelper;
+import com.example.applabssgonzalezjgonzalezjbultron.Helpers.datosHelper;
 import com.example.applabssgonzalezjgonzalezjbultron.Login.MainActivity;
 import com.example.applabssgonzalezjgonzalezjbultron.R;
 import com.example.applabssgonzalezjgonzalezjbultron.Vendedor.ActualizarArticulosActivity;
@@ -224,12 +226,14 @@ public class CompradorActivity extends AppCompatActivity {
         }
     }
     public void Añadiralcarrito(View v){
-        String nom="", codprod="", estado="", fecha="", idcomp="", cant="";
-        Integer MaxID=0, cantidad=0;
+        String nom="", codprod="", cant="", idcomp="";
+        Integer MaxID=0, cantidad=1;
 
-        //Abro la base de datos
-        ArticulosBDHelper arDB = new ArticulosBDHelper(this, "Comprador", null, 1);
-        //En modo de lectura
+
+
+        //Abro la base de datos En modo de lectura
+        CompradorBDHelper arDB = new CompradorBDHelper(this, "Compras", null, 1);
+
         SQLiteDatabase db = arDB.getReadableDatabase();
         try {
                 if (db != null) {
@@ -242,13 +246,38 @@ public class CompradorActivity extends AppCompatActivity {
                     db.close();
                     cursor.close();
                 }
-            //Pasarle el nombre
+
+            //Buscando el id y nombre del comprador
+            SharedPreferences prePerfil = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+            perfil = prePerfil.getString("perfil","Invitado");
+            datosHelper userDB = new datosHelper(this,"Usuarios",null,1);
+
+            SQLiteDatabase db2 = userDB.getWritableDatabase();
+            if (db2!= null)
+            {
+
+                //OBTINE LOS DATOS DEL USUARIO CON LA SESION ACTIVA
+                Cursor cursor = db2.rawQuery("SELECT * FROM Usuarios WHERE usuario = '" + perfil + "'", null);
+
+                if (cursor.moveToFirst()){
+                    do {
+
+                        idcomp= cursor.getString(0);
+                        nom =cursor.getString(1);
+
+                    }while (cursor.moveToNext());
+                }
+                db.close();
+                cursor.close();
+            }
+
+
             nom = "Nombre: "+nom;
             codprod = "Codigo: "+codprod;
-            estado = "Estado: "+estado;
+            //estado = "Estado: "+estado;
             idcomp = "id compra: "+MaxID;
             cant = "Cantidad" +cantidad;
-            db.execSQL("INSERT INTO Comprador (id, nombre, estado, cod) " + "VALUES ('" + MaxID + "', '" + nom + "', '" + cant + "' , '" + estado + "')");
+            db.execSQL("INSERT INTO Comprador (id, cant, cod) " + "VALUES ('" + MaxID + "', '" + cant + "', '" + codprod +"')");
 
             Toast.makeText(this, "Compra registrada con éxito!", Toast.LENGTH_LONG).show();
             //Restablecer valores del registro

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class CompradorBDHelper extends SQLiteOpenHelper {
-    String queryCreate = "CREATE TABLE Comprador(id INTEGER PRIMARY KEY, nombre TEXT, estado TEXT, cod TEXT, fecha TEXT)";//imagen BLOB,
+    String queryCreate = "CREATE TABLE Compraa(id INTEGER PRIMARY KEY, cant TEXT, cod TEXT)";//imagen BLOB,
 
     public CompradorBDHelper(Context context, String nombre, SQLiteDatabase.CursorFactory factory, int version)
     {
