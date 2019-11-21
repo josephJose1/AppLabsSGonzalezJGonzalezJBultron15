@@ -73,7 +73,7 @@ public class CompradorActivity extends AppCompatActivity {
         spnOpcion.setAdapter(adapterList);
     }
     public void btn(View view){
-        Toast.makeText(getApplicationContext(),"Buscando",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Buscando",Toast.LENGTH_SHORT).show();
         this.LoadListViewTemplatefind();
     }
     private void LoadListViewTemplate()
@@ -145,62 +145,57 @@ public class CompradorActivity extends AppCompatActivity {
             ArticulosBDHelper arDB = new ArticulosBDHelper(this, "Articulos", null, 1);
             //En modo de lectura
             SQLiteDatabase db = arDB.getReadableDatabase();
+            //equalsIgnorecase para que no distinga entre minuscula y mayuscula
+            //trim() para retornar el valor sin espacios enfrente
+            Toast.makeText(this, "Este es el valor del spinner!"+est, Toast.LENGTH_LONG).show();
+
             if(est.compareTo("Seleccione el tipo de filtrado") == 0)
             {
                 Toast.makeText(this, "Por favor seleccione el Tipo de Filtrado del artículo!", Toast.LENGTH_LONG).show();
             }
-            else if(est.compareTo("Código") == 1 && valor_busqueda.trim().equalsIgnoreCase("") ) {
-                Toast.makeText(this, "Por favor ingrese el nombre del artículo!", Toast.LENGTH_LONG).show();
-            }
-            else if(est.compareTo("Nombre") == 2 && valor_busqueda.trim().equalsIgnoreCase("") ) {
-                Toast.makeText(this, "Por favor ingrese el nombre del artículo!", Toast.LENGTH_LONG).show();
-            }
-            else if(est.compareTo("Cantidad") == 3 &&valor_busqueda.trim().equalsIgnoreCase(""))
+            else if(est.equals("Código") && valor_busqueda.trim().equalsIgnoreCase(""))
             {
-                Toast.makeText(this, "Por favor ingrese el número de artículos!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Por favor ingrese el codigo del artículo!", Toast.LENGTH_SHORT).show();
             }
-            else if(est.compareTo("Estado") == 4 && valor_busqueda.trim().equalsIgnoreCase("0"))
-            {
-                Toast.makeText(this, "Por favor ingrese el estado del artículo!", Toast.LENGTH_LONG).show();
+            else if(est.equals("Nombre") && valor_busqueda.trim().equalsIgnoreCase("")) {
+                Toast.makeText(this, "Por  tu favor ingrese el nombre del artículo!", Toast.LENGTH_SHORT).show();
             }
-            else if(est.compareTo("Precio") == 5 && valor_busqueda.trim().equalsIgnoreCase(""))
+            else if(est.equals("Cantidad") && valor_busqueda.trim().equalsIgnoreCase(""))
             {
-                Toast.makeText(this, "Por favor ingrese el costo del artículo!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Por favor ingrese la cantidad de artículos!", Toast.LENGTH_SHORT).show();
+            }
+            else if(est.equals("Estado") && valor_busqueda.trim().equalsIgnoreCase(""))
+            {
+                Toast.makeText(this, "Por favor ingrese el estado del artículo!", Toast.LENGTH_SHORT).show();
+            }
+            else if(est.equals("Precio") && valor_busqueda.trim().equalsIgnoreCase(""))
+            {
+                Toast.makeText(this, "Por favor ingrese el costo del artículo!", Toast.LENGTH_SHORT).show();
             }
 
             else {
+
                 if (db != null) {
-                    Cursor cursor = db.rawQuery("SELECT * FROM articulos WHERE Id='" + valor_busqueda + "'", null);
+                    Cursor cursor;
+                    //Toast.makeText(this, "Antes del cursor!", Toast.LENGTH_LONG).show();
 
-                    if(est.compareTo("Código") == 1) {
+                    if(est.equals("Código")) {
 
+                        Toast.makeText(this, "Asignando el query!", Toast.LENGTH_LONG).show();
                         // OBTIENEN LOS DATOS DE LA TABLA ARTICULOS DEL USUARIO CON LA SESION ACTIVA USANDO EL CODIGO
                         cursor = db.rawQuery("SELECT * FROM articulos WHERE Id='" + valor_busqueda + "'", null);
+                        this.movcursor(cursor, lista);
+                        db.close();
+                        cursor.close();
                     }
-                    else if(est.compareTo("Nombre") == 2) {
+                    else if(est.equals("Nombre")) {
 
                         //OBTIENEN LOS DATOS DE LA TABLA ARTICULOS DEL USUARIO CON LA SESION ACTIVA USANDO EL Nombre
-                        cursor = db.rawQuery("SELECT * FROM articulos WHERE Nombre='" + valor_busqueda + "'", null);
+                        cursor = db.rawQuery("SELECT * FROM articulos WHERE nombre='" + valor_busqueda + "'", null);
+                        this.movcursor(cursor, lista);
+                        db.close();
+                        cursor.close();
                     }
-
-                    if (cursor.moveToFirst()) {
-                        do {
-                            Articulos sm = new Articulos(); //INSERTA LOS DATOS EN LA LISTA
-
-                            sm.setId(cursor.getString(0));
-                            sm.setNombre(cursor.getString(1));
-                            sm.setCantidad(cursor.getString(2));
-                            sm.setEstado(cursor.getString(3));
-                            sm.setPrecio(cursor.getString(4));
-                            sm.setDire(cursor.getString(5));
-                        /*byte[] image = cursor.getBlob(4);
-                        sm.setImagen(image);*/
-
-                            lista.add(sm);
-                        } while (cursor.moveToNext());
-                    }
-                    db.close();
-                    cursor.close();
                 }
             }
         } catch (Exception e) {
@@ -210,7 +205,24 @@ public class CompradorActivity extends AppCompatActivity {
         this.Cargar_Spinner();
         return lista;
     }
-    //aajclasjd
+    public void movcursor(Cursor cursor, List<Articulos> lista){
+        if (cursor.moveToFirst()) {
+            do {
+                Articulos sm = new Articulos(); //INSERTA LOS DATOS EN LA LISTA
+
+                sm.setId(cursor.getString(0));
+                sm.setNombre(cursor.getString(1));
+                sm.setCantidad(cursor.getString(2));
+                sm.setEstado(cursor.getString(3));
+                sm.setPrecio(cursor.getString(4));
+                sm.setDire(cursor.getString(5));
+                        /*byte[] image = cursor.getBlob(4);
+                        sm.setImagen(image);*/
+
+                lista.add(sm);
+            } while (cursor.moveToNext());
+        }
+    }
     public void Añadiralcarrito(View v){
         String nom="", codprod="", estado="", fecha="", idcomp="", cant="";
         Integer MaxID=0, cantidad=0;
